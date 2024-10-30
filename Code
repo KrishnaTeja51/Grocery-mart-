@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grocery Mart Order Form</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f8f8f8;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+ 
+
+        .container {
+
+            max-width: 400px;
+
+            margin: 50px auto;
+
+            padding: 20px;
+
+            background: #fff;
+
+            border-radius: 5px;
+
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+ 
+
+        h1 {
+
+            text-align: center;
+
+        }
+
+ 
+
+        .form-group {
+
+            margin-bottom: 15px;
+
+        }
+
+ 
+
+        label {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+        }
+
+ 
+
+        input, select {
+
+            width: 100%;
+
+            padding: 10px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 4px;
+
+        }
+
+ 
+
+        button {
+
+            width: 100%;
+
+            padding: 10px;
+
+            background-color: #28a745;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 4px;
+
+            cursor: pointer;
+
+        }
+
+ 
+
+        button:hover {
+
+            background-color: #218838;
+
+        }
+
+ 
+
+        .hidden {
+
+            display: none;
+
+        }
+
+ 
+
+        #result {
+
+            margin-top: 20px;
+
+            padding: 10px;
+
+            background-color: #e9ecef;
+
+            border: 1px solid #ddd;
+
+            border-radius: 4px;
+
+        }
+
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Grocery Mart Order Form</h1>
+
+        <form id="groceryForm">
+
+            <div class="form-group">
+
+                <label for="name">Name:</label>
+
+                <input type="text" id="name" required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="email">Email:</label>
+
+                <input type="email" id="email" required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="item">Select Item:</label>
+
+                <select id="item" required>
+
+                    <option value="">--Choose an item--</option>
+
+                    <option value="Apples">Apples</option>
+
+                    <option value="Bananas">Bananas</option>
+
+                    <option value="Carrots">Carrots</option>
+
+                    <option value="Milk">Milk</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="quantity">Quantity:</label>
+
+                <input type="number" id="quantity" required min="1">
+
+            </div>
+
+            <button type="submit">Submit Order</button>
+
+        </form>
+
+        <div id="result" class="hidden"></div>
+
+    </div>
+
+ 
+
+    <script>
+
+        $(document).ready(function() {
+
+            $('#groceryForm').on('submit', function(event) {
+
+                event.preventDefault(); // Prevent the default form submission
+
+ 
+
+                const name = $('#name').val();
+
+                const email = $('#email').val();
+
+                const item = $('#item').val();
+
+                const quantity = $('#quantity').val();
+
+ 
+
+                const resultMessage = `
+
+                    <h3>Order Summary</h3>
+
+                    <p>Name: ${name}</p>
+
+                    <p>Email: ${email}</p>
+
+                    <p>Item: ${item}</p>
+
+                    <p>Quantity: ${quantity}</p>
+
+                `;
+
+ 
+
+                $('#result').html(resultMessage).removeClass('hidden'); // Show the result
+
+                $('#groceryForm')[0].reset(); // Reset the form
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+
+ 
+
+============================================================================================================================ Disclaimer: This message and the information contained herein is proprietary and confidential and subject to the Tech Mahindra policy statement, you may review the policy at http://www.techmahindra.com/Disclaimer.html externally http://tim.techmahindra.com/tim/disclaimer.html internally within TechMahindra. ============================================================================================================================
